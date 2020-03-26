@@ -16,17 +16,11 @@ const Part = (props) => {
 }
 
 const Content = () => {
-  const part1 = "Hello World";
-  const part2 = "Hello Morning";
-  const part3 = "Hello Evening";
-  const excercise1 = 10;
-  const excercise2 = 7;
-  const excercise3 = 5;
   return(
   <div>
-      <Part part={part1} excercise={excercise1}/>
-      <Part part={part2} excercise={excercise2}/>
-      <Part part={part3} excercise={excercise3}/>
+      <Part part="Hello World" excercise="10"/>
+      <Part part="Hello Morning" excercise="7" />
+      <Part part="Hello Evening" excercise="5" />
   </div>
   )
 }
