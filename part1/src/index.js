@@ -1,105 +1,50 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 
-// const Header = (props) => {
-//   return(
-//     <div>
-//       <h1>{props.course}</h1>
-//     </div>
-//   )
-// }
+const History = (props) => {
+  if(props.allClicks.length === 0) {
+    return(
+      <div>The App is used by pressing the button</div>
+    )
+  }
 
-// const Part = (props) => {
-//   return(
-//     <div>{props.part} {props.excercise}</div>
-//   )
-// }
-
-// const Content = () => {
-//   return(
-//   <div>
-//       <Part part="Hello World" excercise="10"/>
-//       <Part part="Hello Morning" excercise="7" />
-//       <Part part="Hello Evening" excercise="5" />
-//   </div>
-//   )
-// }
-
-// const Total = () => {
-//   const excercise1 = 10;
-//   const excercise2 = 7;
-//   const excercise3 = 5;
-//   return(
-//     <div>
-//       <p>Number of excercise {excercise1 + excercise2 + excercise3 }</p>
-//     </div>
-//   )
-// }
-// const App = (props) => {
-//   const course ={
-//     name: "Half Stack Application Development",
-//     parts: [
-//       {
-//       name: 'Hello World',
-//       excercise: 10
-//       },
-//       {
-//       name: 'Hello Morning',
-//       excercise: 7
-//       },
-//       {
-//       name: 'Hello Evening',
-//       excercise: 14
-//       }
-//     ]
-//   }
-//   return(
-//   <div>
-//     <Header course={course} />
-//     <Content parts={parts}/>
-//     <Total parts={parts}/>
-//   </div>
-//   )
-// }
-
-const Display = ({counter}) => {
   return (
-    <div>{counter}</div>
+    <div>Press the button history: {props.allClicks.join('')}</div>
   )
 }
 
-const Button = (props) => {
+const Button = ({onClick, text}) => {
   return(
-    <button onClick={props.handleClick}>{props.text}</button>
+    <button onClick={onClick}>{text}</button>
   )
 }
-
 
 
 const App = (props) => {
-  const [counter, setCounter] = useState(0);
+  const [left, setLeft] = useState(0);
+  const [right, setRight] = useState(0);
+  const [allClicks, setAll] = useState([]);
 
-  const Increment = () => setCounter(counter + 1);
-  const Decrement = () => setCounter(counter -1);
-  const Reset = () => setCounter(0);
+  const handleLeftCkick = () => {
+    setAll(allClicks.concat('L'))
+    setLeft(left + 1);
+  }
+  const handleRightCkick = () => {
+    setAll(allClicks.concat('R'))
+    setRight(right + 1);
+  }
 
   return (
     <div>
-      <Display counter={counter} />
-      <br />
-    <Button
-      handleClick={Increment}
-      text="+"
-      />
-    <Button
-      handleClick={Decrement}
-      text="-"
-      />
-    <Button
-      handleClick={Reset}
-      text="Reset"
-      />
+      {left}
+      <Button onClick={handleLeftCkick} text="+" />
+      <Button onClick={handleRightCkick} text="+"/>
+      {right}
+      <History allClicks={allClicks} />
     </div>
   )
+
+
+
 }
 ReactDOM.render(<App />, document.getElementById('root'))
