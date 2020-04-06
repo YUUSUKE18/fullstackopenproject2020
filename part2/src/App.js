@@ -27,7 +27,7 @@ const notes = [
   }
 ]
 
-const App = ({notes}) => {
+const App = (notes) => {
   const { notes } = notes;
 
   return(
