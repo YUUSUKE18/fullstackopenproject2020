@@ -27,8 +27,8 @@ const notes = [
   }
 ]
 
-const App = (props) => {
-  const{ notes } = props;
+const App = ({notes}) => {
+  const { notes } = notes;
 
   return(
     <div>
