@@ -32,7 +32,7 @@ const App = (props) => {
     <div>
       <h2>Notes</h2>
       <ul>
-        {notes.map(note => <li>{note.content}</li>)}
+        {notes.map(note => <li key={note.id}>{note.content}</li>)}
       </ul>
     </div>
   )
