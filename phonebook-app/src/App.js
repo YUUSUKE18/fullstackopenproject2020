@@ -29,6 +29,11 @@ const App = () => {
       setNewName('');
       setNewNumber('');
   }
+  const searchName = (e) => {
+    e.preventDefault();
+    return resultName = e.target.value;
+  }
+  const searchResult = showAll ? persons : persons.filter(person => person.name === resultName);
 
   const handleNameChange = (e) => {
     console.log(e.target.value);
@@ -42,6 +47,9 @@ const App = () => {
   return (
     <div className="App">
       <h2>PhoneBook</h2>
+       <div>
+          filter shown with <input value={searchName} onChange={handleSearchName} />
+      </div>
       <form onSubmit={addName}>
         <div>
           name:  <input value={newName} onChange={handleNameChange} />
@@ -55,7 +63,7 @@ const App = () => {
       </form>
       <h2>Numbers</h2>
       <ul>
-        {persons.map(person => {
+        {searchResult.map(person => {
           return <div key={person.id}>{person.name} {person.number}</div>
         })}
       </ul>
