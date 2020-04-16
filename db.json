@@ -1,0 +1,22 @@
+{
+    "notes" : [
+    {
+      "id": 1,
+      "content": "HTML is easy",
+      "date":  "'2020-04-02'",
+      "important": true
+    },
+    {
+      "id": 2,
+      "content": "HTML is easy",
+      "date":  "'2020-04-02'",
+      "important": false
+    },
+    {
+        "id": 3,
+        "content": "HTML is easy",
+        "date": "'2020-04-02'",
+        "important": false
+      }
+  ]
+}
